@@ -247,7 +247,7 @@ function panelMenu(divId) {
 	var panel = $('#panelMenu' + divId + 'UL');
 	panel.children().remove('li');
 	panel.append('<li data-icon="false" class="headerSpace"><p>&nbsp;</p></li>'); // empty space, needed for header
-	panel.append('<li data-role="list-divider"><p class="panelTextDivider">jpHolo</p></li>');
+	panel.append('<li data-role="list-divider"><p class="panelTextDivider">WellTrak</p></li>');
 	panel.append('<li data-icon="false"><a class="panelText" href="#indexPage"><img src="./images/icons/ic_action_home.png" class="ui-li-icon largerIcon">Main page</a></li>');
 	panel.append('<li data-role="list-divider"><p class="panelTextDivider">Other pages</p></li>');
 	panel.append('<li data-icon="false"><a class="panelText" href="#otherPage"><img src="./images/icons/ic_action_info.png" class="ui-li-icon largerIcon">Other page</a></li>');

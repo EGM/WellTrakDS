@@ -48,91 +48,6 @@ function loadOtherPageContent() {
 	}, 2000);
 }
 
-// initiate immersive content
-function initiateImmersive() {
-	var pic_real_width,
-		pic_real_height,
-		imageRatio,
-		screenRatio;
-	$("<img />")
-		.attr("src", "./images/chromecast.jpg")
-		.load(function () {
-			pic_real_width = this.width;
-			pic_real_height = this.height;
-			imageRatio = pic_real_width / pic_real_height;
-			screenRatio = window.innerWidth / window.innerHeight;
-			if (pic_real_width > pic_real_height) {
-				if (imageRatio < screenRatio) {
-					$('photoImmersive').removeClass("fillwidth");
-					$('photoImmersive').addClass("fillheight");
-				} else {
-					$('photoImmersive').removeClass("fillheight");
-					$('photoImmersive').addClass("fillwidth");
-				}
-			} else if (pic_real_width < pic_real_height) {
-				if (imageRatio < screenRatio) {
-					$('photoImmersive').removeClass("fillwidth");
-					$('photoImmersive').addClass("fillheight");
-				} else {
-					$('photoImmersive').removeClass("fillheight");
-					$('photoImmersive').addClass("fillwidth");
-				}
-			} else if (pic_real_width === pic_real_height) {
-				if (imageRatio > screenRatio) {
-					$('photoImmersive').removeClass("fillheight");
-					$('photoImmersive').addClass("fillwidth");
-				} else {
-					$('photoImmersive').removeClass("fillwidth");
-					$('photoImmersive').addClass("fillheight");
-				}
-			}
-		});
-	$('#photoDiv').off("click").on("click",
-		function () {
-			toggleImmersive();
-		});
-	$('#photoInfoDiv').off("click").on("click",
-		function () {
-			toggleImmersive();
-		});
-}
-
-// toggle immersive interface
-function toggleImmersive() {
-	if ($.mobile.pageContainer.pagecontainer("getActivePage")[0].id === 'immersivePage') {
-		if ($("#footerImmersive").is(':hidden')) {
-			$('#footerImmersive').show();
-		} else {
-			$('#footerImmersive').hide();
-		}
-		if ($("#headerImmersive").is(':hidden')) {
-			$('#headerImmersive').show();
-		} else {
-			$('#headerImmersive').hide();
-		}
-		if ($("#photoInfoDiv").is(':hidden')) {
-			$('#photoInfoDiv').show();
-		} else {
-			$('#photoInfoDiv').hide();
-		}
-	} else if ($.mobile.pageContainer.pagecontainer("getActivePage")[0].id === 'immersivePage') {
-		if ($("#footerImmersive").is(':hidden')) {
-			$('#footerImmersive').show();
-		} else {
-			$('#footerImmersive').hide();
-		}
-		if ($("#headerImmersive").is(':hidden')) {
-			$('#headerImmersive').show();
-		} else {
-			$('#headerImmersive').hide();
-		}
-		if ($("#photoInfoDiv").is(':hidden')) {
-			$('#photoInfoDiv').show();
-		} else {
-			$('#photoInfoDiv').hide();
-		}
-	}
-}
 
 // assign click events to elements
 function htmlClickEventHandlers(id, action) {
@@ -243,19 +158,6 @@ function initPageVarsOnShow(id) {
 		isDeviceReady("", "InitUri"); // TODO
 	} else if (id === "Index") {
 		pressEffectFooter(true, true);
-	} else if (id === "Other") {
-		pressEffectFooter(true, true);
-		getSystemSpecs();
-		loadOtherPageContent();
-	} else if (id === "UriMessage") {
-		showUriMessage();
-		pressEffectFooter(true, true);
-	} else if (id === "Service") {
-		pressEffectFooter(true, true);
-		androidServiceHandler("getStatus", "none");
-	} else if (id === "Immersive") {
-		pressEffectFooter(true, true);
-		initiateImmersive();
 	}
 }
 
@@ -300,38 +202,3 @@ $(document).on('pagecreate', '#indexPage', function () {
 	initPageVarsOnCreate('Index');
 });
 
-// #otherPage
-$(document).on('pagebeforeshow', '#otherPage', function (event, data) {
-	startBeforeShowVars(data);
-	initPageVarsOnShow('Other');
-});
-$(document).on('pagecreate', '#otherPage', function () {
-	initPageVarsOnCreate('Other');
-});
-
-// #uriPage
-$(document).on('pagebeforeshow', '#uriPage', function (event, data) {
-	startBeforeShowVars(data);
-	initPageVarsOnShow('UriMessage');
-});
-$(document).on('pagecreate', '#uriPage', function () {
-	initPageVarsOnCreate('UriMessage');
-});
-
-// #servicePage
-$(document).on('pagebeforeshow', '#servicePage', function (event, data) {
-	startBeforeShowVars(data);
-	initPageVarsOnShow('Service');
-});
-$(document).on('pagecreate', '#servicePage', function () {
-	initPageVarsOnCreate('Service');
-});
-
-// #immersivePage
-$(document).on('pagebeforeshow', '#immersivePage', function (event, data) {
-	startBeforeShowVars(data);
-	initPageVarsOnShow('Immersive');
-});
-$(document).on('pagecreate', '#immersivePage', function () {
-	initPageVarsOnCreate('Immersive');
-});

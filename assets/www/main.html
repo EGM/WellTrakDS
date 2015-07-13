@@ -9,14 +9,16 @@
 		<link rel="stylesheet" type="text/css" href="./themes/AndroidHolo.min.css" /><!-- ThemeRoller theme -->
 		<link rel="stylesheet" type="text/css" href="./themes/jquery.mobile.icons-1.4.5.min.css" />
 		<link rel="stylesheet" type="text/css" href="./themes/jquery.mobile.structure-1.4.5.min.css" />
-		
+	    <link rel="stylesheet"  href=".themes/dist/jqm-icon-pack-fa.css" />
+		  
 		<!-- jpHolo theme -->
 		<link rel="stylesheet" type="text/css" href="./themes/jpholo.css" />
 		<link rel="stylesheet" type="text/css" href="./themes/jpholo.splitview.css" />
 		<link rel="stylesheet" type="text/css" href="./themes/jpholo.cards.css" />
 		<link rel="stylesheet" type="text/css" href="./themes/jpholo.spinner.css" />
 		<link rel="stylesheet" type="text/css" href="./themes/jpholo.smartphone.css" id="sizeStylesheet" />
-		
+	    <link rel="stylesheet" type="text/css" href="./themes/jpholo.egm.css" />
+		  
 		<!-- JavaScript -->
 		<!-- Cordova PhoneGap --><!-- exclude the scripts below if you are not deploying with PhoneGap -->
 		<script type="text/javascript" src="./cordova.js"></script>
@@ -45,8 +47,11 @@
 		<script type="text/javascript" src="./js/jpholo.core.services.js"></script>
 		<!-- your scripts -->
 		<script type="text/javascript" src="./js/application.js"></script>
+		<script src="./js/visitObj.js"></script>
+		<script src="./js/egm.js"></script>
+		<script>var egm = new EGM();</script>
 		
-		<title>jpHolo</title>
+		<title>WellTrak</title>
 	</head>
 	<body>
 		<!-- exclude the landingPage if you are not deploying with PhoneGap -->
@@ -128,240 +133,111 @@
 		
 		</div><!-- /page -->
 		
-		<div id="otherPage" data-role="page" data-theme="a">
-			
-			<!-- left panel  -->
-			<div id="panelMenuOther" data-role="panel" data-theme="b" data-position="left" data-display="overlay" data-dismissible="true" data-position-fixed="true" data-swipe-close="true" data-animate="true" class="transparant">
-				<ul id="panelMenuOtherUL" data-role="listview"></ul>
-			</div>
-			<!-- /panel -->
-			
-			<!-- right panel  -->
-			<div id="panelMenuRightOther" data-role="panel" data-theme="b" data-position="right" data-display="overlay" data-dismissible="true" data-position-fixed="true" data-swipe-close="true" data-animate="true" class="transparant">
-				<ul id="panelMenuRightOtherUL" data-role="listview"></ul>
-			</div>
-			<!-- /panel -->
-			
-			<div class="headerSticky ui-title" data-role="header" data-hide-during-focus="" data-tap-toggle="false" data-position="fixed" data-theme="a">
-				<div>
-					<p class="headerBarText"><img id="headerTitleOther" class="headerIconTitle" src="./images/icons/ic_launcher_full_arrow.png" /><img id="headerShareOther" class="headerIconSecondRight" src="./images/icons/ic_action_share_header.png" /><img id="headerOverflowOther" class="headerIconFirstRight" src="./images/icons/ic_action_overflow_header.png" />
-					&nbsp;</p>
-				</div>
-			</div><!-- /header -->
-			
-			<div role="main" class="ui-content" data-theme="a">
-				
-				<div class="ui-grid-a ui-responsive">
-					<div class="ui-block-a">
-				
-					<h1>Other Page</h1>
-					<p id="systemSpecs"></p>
-					
-					</div>
-					<div class="ui-block-b">
-					
-					<p id="otherPageContent"></p>
-				
-					</div>
-				</div>
-				
-			</div><!-- /content -->
+	  <div id="otherPage" data-role="page" data-theme="a">
+
+		<!-- left panel  -->
+		<div id="panelMenuOther" data-role="panel" data-theme="b" data-position="left" data-display="overlay" data-dismissible="true" data-position-fixed="true" data-swipe-close="true" data-animate="true" class="transparant">
+		  <ul id="panelMenuOtherUL" data-role="listview"></ul>
+		</div>
+		<!-- /panel -->
+
+		<!-- right panel  -->
+		<div id="panelMenuRightOther" data-role="panel" data-theme="b" data-position="right" data-display="overlay" data-dismissible="true" data-position-fixed="true" data-swipe-close="true" data-animate="true" class="transparant">
+		  <ul id="panelMenuRightOtherUL" data-role="listview"></ul>
+		</div>
+		<!-- /panel -->
+
+		<div class="headerSticky ui-title" data-role="header" data-hide-during-focus="" data-tap-toggle="false" data-position="fixed" data-theme="a">
+		  <div>
+			<p class="headerBarText"><img id="headerTitleOther" class="headerIconTitle" src="./images/icons/ic_launcher_full_arrow.png" /><img id="headerShareOther" class="headerIconSecondRight" src="./images/icons/ic_action_share_header.png" /><img id="headerOverflowOther" class="headerIconFirstRight" src="./images/icons/ic_action_overflow_header.png" />
+			  &nbsp;</p>
+		  </div>
+		</div><!-- /header -->
 		
-		</div><!-- /page -->
-		
-		<div id="uriPage" data-role="page" data-theme="a">
-			
-			<!-- left panel  -->
-			<div id="panelMenuUriMessage" data-role="panel" data-theme="b" data-position="left" data-display="overlay" data-dismissible="true" data-position-fixed="true" data-swipe-close="true" data-animate="true" class="transparant">
-				<ul id="panelMenuUriMessageUL" data-role="listview"></ul>
+		<div role="main" class="ui-content" data-theme="a">
+		  
+		  <h1>Well Visit</h1>
+		  <div class="ui-grid-a ui-responsive">
+			<div class="ui-block-a">
+			  <label for="well">Well:</label>
 			</div>
-			<!-- /panel -->
-			
-			<!-- right panel  -->
-			<div id="panelMenuRightUriMessage" data-role="panel" data-theme="b" data-position="right" data-display="overlay" data-dismissible="true" data-position-fixed="true" data-swipe-close="true" data-animate="true" class="transparant">
-				<ul id="panelMenuRightUriMessageUL" data-role="listview"></ul>
+			<div class="ui-block-b">
+			  <select name="visit-well" id="visit-well" data-native-menu="false" tabindex="1">
+				<option value="1">1<sup>st</sup> Well</option>
+				<option value="2">2<sup>nd</sup> Well</option>
+			  </select>
 			</div>
-			<!-- /panel -->
-			
-			<div class="headerSticky ui-title" data-role="header" data-hide-during-focus="" data-tap-toggle="false" data-position="fixed" data-theme="a">
-				<div>
-					<p class="headerBarText"><img id="headerTitleUriMessage" class="headerIconTitle" src="./images/icons/ic_launcher_full_arrow.png" /><img id="headerShareUriMessage" class="headerIconSecondRight" src="./images/icons/ic_action_share_header.png" /><img id="headerOverflowUriMessage" class="headerIconFirstRight" src="./images/icons/ic_action_overflow_header.png" />
-					&nbsp;</p>
-				</div>
-			</div><!-- /header -->
-			
-			<div role="main" class="ui-content" data-theme="a">
-				
-				<div class="ui-grid-a ui-responsive">
-					<div class="ui-block-a">
-				
-					<h1>Uri page</h1>
-					<p>An Uri has been captured by this app. See the message below to see what has been captured.</p>
-					
-					</div>
-					<div class="ui-block-b">
-					
-					<p id="uriMessage"></p>
-				
-					</div>
-				</div>
-				
-			</div><!-- /content -->
-		
-		</div><!-- /page -->
-		
-		<div id="servicePage" data-role="page" data-theme="a">
-			
-			<!-- left panel  -->
-			<div id="panelMenuService" data-role="panel" data-theme="b" data-position="left" data-display="overlay" data-dismissible="true" data-position-fixed="true" data-swipe-close="true" data-animate="true" class="transparant">
-				<ul id="panelMenuServiceUL" data-role="listview"></ul>
+			<div class="ui-block-a">
+			  <label for="date">Date:</label>
 			</div>
-			<!-- /panel -->
-			
-			<!-- right panel  -->
-			<div id="panelMenuRightService" data-role="panel" data-theme="b" data-position="right" data-display="overlay" data-dismissible="true" data-position-fixed="true" data-swipe-close="true" data-animate="true" class="transparant">
-				<ul id="panelMenuRightServiceUL" data-role="listview"></ul>
+			<div class="ui-block-b">
+		      <input id="visit-date" type="date" tabindex="2" value="2015-07-10" min="2015-01-01"/>
+  			  <script>
+				// Set datepicker to current date
+				$("#visit-date").val(egm.dateToSqlDateString(new Date()));
+		 	  </script>  
 			</div>
-			<!-- /panel -->
 			
-			<div class="headerSticky ui-title" data-role="header" data-hide-during-focus="" data-tap-toggle="false" data-position="fixed" data-theme="a">
-				<div>
-					<p class="headerBarText"><img id="headerTitleService" class="headerIconTitle" src="./images/icons/ic_launcher_full_arrow.png" /><img id="headerShareService" class="headerIconSecondRight" src="./images/icons/ic_action_share_header.png" /><img id="headerOverflowService" class="headerIconFirstRight" src="./images/icons/ic_action_overflow_header.png" />
-					&nbsp;</p>
-				</div>
-			</div><!-- /header -->
-			
-			<div role="main" class="ui-content" data-theme="a">
-		
-				<table>
-				
-				<tr class="tdTitle">
-					<td colspan=2>Service settings</td>
-				</tr>
-				
-				<tr class="lineBreak">
-					<td class="center" colspan=2><p class="thinSettings">Android Service. A service that can execute native Java code in the background in a PhoneGap app on the Android platform.</p></td>
-				</tr>
-				
-				<tr class="lineBreak">
-					<td class="left"><p class="bigSettings">Service enabled</p><p class="tinySettings">Enable or disable the service.</p></td>
-					<td class="right">
-						<select name="flipServiceStatus" id="serviceStatus" data-role="flipswitch" data-corners="false" data-mini="true" data-theme="c">
-							<option value="on">on</option>
-							<option value="off">off</option>
-						</select>
-					</td>
-				</tr>
-				
-				<tr class="lineBreak">
-					<td class="left"><p class="bigSettings">Set toast duration</p><p class="tinySettings">Show a toast for a shorter or longer period.</p></td>
-					<td class="right">
-						<select name="flipServiceToastDuration" id="serviceToastDuration" data-role="flipswitch" data-corners="false" data-mini="true" data-theme="c">
-							<option value="short">short</option>
-							<option value="long">long</option>
-						</select>
-					</td>
-				</tr>
-				
-				<tr class="lineBreak">
-					<td class="left"><p class="bigSettings">Interval timer enabled</p><p class="tinySettings">Execute the service on a given time interval.</p></td>
-					<td class="right">
-						<select name="flipServiceTimer" id="serviceTimer" data-role="flipswitch" data-corners="false" data-mini="true" data-theme="c">
-							<option value="on">on</option>
-							<option value="off">off</option>
-						</select>
-					</td>
-				</tr>
-				
-				<tr class="nonLineBreak">
-					<td colspan=2><p class="bigSettings">Set interval to once every...</p><div id="timerDurationStatus" class="darkcyan"></div></td>
-				</tr>
-				
-				<tr class="lineBreak">
-					<td colspan=2>
-						<div data-role="controlgroup">
-							<input type="button" data-theme="c" data-shadow="false" id="toggleTimer1" data-mini="true" value="1 min" />
-							<input type="button" data-theme="c" data-shadow="false" id="toggleTimer2" data-mini="true" value="30 min" />
-							<input type="button" data-theme="c" data-shadow="false" id="toggleTimer3" data-mini="true" value="1 hour" />
-							<input type="button" data-theme="c" data-shadow="false" id="toggleTimer4" data-mini="true" value="6 hours" />
-							<input type="button" data-theme="c" data-shadow="false" id="toggleTimer5" data-mini="true" value="12 hours" />
-							<input type="button" data-theme="c" data-shadow="false" id="toggleTimer6" data-mini="true" value="1 day" />
-						</div>
-					</td>
-				</tr>
-				
-				<tr class="nonLineBreak">
-					<td colspan=2><p class="bigSettings">Run once</p><p class="tinySettings">Execute the service now and only once.</p></td>
-					
-				</tr>
-				
-				<tr class="lineBreak">
-					<td colspan=2>
-						<div data-role="controlgroup" class="settingButtons">
-							<input type="button" id="serviceRunOnce" data-mini="true" value="NOW" />
-						</div>
-					</td>
-				</tr>
-				
-				<tr class="lineBreak">
-					<td class="left"><p class="bigSettings">Start service at boot</p><p class="tinySettings">Restart the service when the device is restarted.</p></td>
-					<td class="right">
-						<select name="flipServiceBootStatus" id="serviceBootStatus" data-role="flipswitch" data-corners="false" data-mini="true" data-theme="c">
-							<option value="on">on</option>
-							<option value="off">off</option>
-						</select>
-					</td>
-				</tr>
-				
-				</table>
-			
-			</div><!-- /content -->
-		
-		</div><!-- /page -->
-		
-		<div id="immersivePage" data-role="page" data-theme="b">
-			
-			<!-- left panel -->
-			<div id="panelMenuImmersive" data-role="panel" data-theme="b" data-position="left" data-display="overlay" data-dismissible="true" data-position-fixed="true" data-swipe-close="true" data-animate="true" class="transparant">
-				<ul id="panelMenuImmersiveUL" data-role="listview"></ul>
+			<h2>Flow</h2>
+			<div class="ui-block-a">
+			  <label for="visit-flow-meter-1">Flow Meter 1:</label>
 			</div>
-			<!-- /panel -->
-			
-			<!-- right panel -->
-			<div id="panelMenuRightImmersive" data-role="panel" data-theme="b" data-position="right" data-display="overlay" data-dismissible="true" data-position-fixed="true" data-swipe-close="true" data-animate="true" class="transparant">
-				<ul id="panelMenuRightImmersiveUL" data-role="listview"></ul>
+			<div class="ui-block-b">
+		      <input id="visit-flow-meter-1" type="number" tabindex="3" placeholder="0.0" />
 			</div>
-			<!-- /panel -->
+			<div class="ui-block-a">
+			  <label for="visit-flow-1">Flow 1:</label>
+			</div>
+			<div class="ui-block-b">
+		      <input id="visit-flow-1" type="number" readonly="readonly" />
+			</div>
+			<div class="ui-block-a">
+			  <label for="visit-flow-meter-2">Flow Meter 2:</label>
+			</div>
+			<div class="ui-block-b">
+		      <input id="visit-flow-meter-2" type="number" tabindex="4" placeholder="0.0" />
+			</div>
+			<div class="ui-block-a">
+			  <label for="visit-flow-2">Flow 2:</label>
+			</div>
+			<div class="ui-block-b">
+		      <input id="visit-flow-2" type="number" readonly="readonly" />
+			</div>
+			<div class="ui-block-a">
+			  <label for="visit-flow-total">Total Flow:</label>
+			</div>
+			<div class="ui-block-b">
+		      <input id="visit-flow-total" type="number" readonly="readonly" />
+			</div>
 			
-			<div data-role="header" data-hide-during-focus="" data-tap-toggle="false" data-position="fixed" data-theme="b" data-fullscreen="true" id="headerImmersive" class="headerSticky actionbarTransparant ui-title">
-				<div>
-					<p class="headerBarText"><img alt="header" id="headerTitleImmersive" class="headerIconTitle" src="./images/icons/ic_launcher_small_arrow.png" /><img alt="header" id="headerShareImmersive" class="headerIconSecondRight" src="./images/icons/ic_action_share_header.png" /><img alt="header" id="headerOverflowImmersive" class="headerIconFirstRight" src="./images/icons/ic_action_overflow_header.png" />
-					&nbsp;</p>
-				</div>
-			</div><!-- /header -->
-			
-			<div role="main" data-theme="b" id="immersivePhotoDiv" class="ui-content immersivePhotoPage">
-				<div id="photoDiv">
-					<img alt="Photo" id="photoImmersive" class="immersivePage" src="./images/chromecast.jpg" />
-				</div>
-				
-				<div id="photoInfoDiv">
-					<h5>
-						<span class="title">2048x1039</span><br />
-						<span class="title note">Chromecast Photo</span><br />
-						<span class="title">This is an example with immersive content</span>
-					</h5>
-				</div>
-			</div><!-- /content -->
-			
-			<div data-role="footer" data-hide-during-focus="" data-tap-toggle="false" data-position="fixed" data-theme="b" data-fullscreen="true" id="footerImmersive" class="actionbarTransparant">
-				<div>
-					<img id="footerShareImmersive" src="./images/icons/ic_action_share_header.png" class="footerIconLeft">
-					<img id="footerToastImmersive" src="./images/icons/ic_action_list_header.png" class="footerIconRight">
-				</div>
-			</div><!-- /footer -->
-			
-		</div><!-- /page -->
+			<h2>Quality</h2>
+			<div class="ui-block-a">
+			  <label for="visit-cl2">Cl<sub>2</sub>:</label>
+			</div>
+			<div class="ui-block-b">
+		      <input id="visit-cl2" type="number" tabindex="5" placeholder="0.0" />
+			</div>
+			<div class="ui-block-a">
+			  <label for="visit-ph">pH:</label>
+			</div>
+			<div class="ui-block-b">
+		      <input id="visit-ph" type="number" tabindex="6" placeholder="0.0" />
+			</div>
+		  </div><!-- /grid -->
+		</div><!-- /content -->
+
+		<div data-role="footer" data-hide-during-focus="" data-tap-toggle="false" data-position="fixed" data-theme="b" class="actionbarTransparant">
+		  <div>
+			<a href="#" class="ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-notext footerIconLeft"></a>
+			<a href="#" class="ui-btn ui-corner-all ui-icon-save ui-btn-icon-notext footerIconLeft"></a>
+			<!--<a href="#" data-role="button" data-icon="save" >data-icon="save"</a>-->
+			<a href="#" class="ui-btn ui-corner-all ui-icon-carat-r ui-btn-icon-notext footerIconRight"></a>
+			<!--<img id="footerShareIndex" src="./images/icons/ic_action_share_header.png" class="footerIconLeft">
+			<img id="footerToastIndex" src="./images/icons/ic_action_list_header.png" class="footerIconRight">-->
+		  </div>
+		</div><!-- /footer -->
+
+	  </div><!-- /page -->
 		
 	</body>
 </html>

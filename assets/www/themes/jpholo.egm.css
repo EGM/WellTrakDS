@@ -1,0 +1,18 @@
+/* Same as jpHolo.css, except for 
+anchors instead of images */
+a.footerIconLeft {
+	height: 2.85em;
+	border: 0;
+	position: relative;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+a.footerIconRight {
+	height: 2.85em;
+	border: 0;
+	position: relative;
+	float: right;
+	margin: 0;
+	padding: 0;
+}

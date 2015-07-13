@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<input type="date" id="datePicker" />
+<p>Click the button to display the date as a string.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script src="./js/egm.js"></script>
+<script>
+egm = new EGM();
+function myFunction() {
+
+	var now = new Date();
+	var n = now.toLocaleDateString();
+
+	console.log(n);
+	document.getElementById("demo").innerHTML = n;
+	document.getElementById("datePicker").value = egm.dateToSqlDateString(now) ; // "2015-07-01";
+}
+</script>
+
+</body>
+</html>
