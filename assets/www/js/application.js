@@ -84,7 +84,22 @@ function htmlClickEventHandlers(id, action) {
 	} else if (id === "Second") {
 		// do nothing
 	} else if (id === "Other") {
-		// do nothing
+		$('#footerPrev').off("click").on("click",
+			function () {
+				toast("Previous", "short");
+			});
+		$('#footerNext').off("click").on("click",
+			function () {
+				toast("Next", "short");
+			});
+		$('#footerSave').off("click").on("click",
+			function () {
+				toast("Save", "short");
+			});
+		$('#footerDelete').off("click").on("click",
+			function () {
+				toast("Delete", "short");
+			});
 	} else if (id === "Service") {
 		initServiceSettings();
 	}
@@ -124,6 +139,7 @@ function initPageVarsOnCreate(id) {
 	} else if (id === "Index") {
 		// do nothing
 	} else if (id === "Other") {
+		htmlClickEventHandlers(id, "menu");
 		// do nothing
 	} else if (id === "UriMessage") {
 		// do nothing

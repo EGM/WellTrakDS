@@ -2,6 +2,7 @@
 anchors instead of images */
 a.footerIconLeft {
 	height: 2.85em;
+	width: 19%;
 	border: 0;
 	position: relative;
 	float: left;
@@ -10,9 +11,21 @@ a.footerIconLeft {
 }
 a.footerIconRight {
 	height: 2.85em;
+	width: 19%;
 	border: 0;
 	position: relative;
 	float: right;
 	margin: 0;
 	padding: 0;
 }
+a.footerIconCenter {
+	height: 2.85em;
+	width: 19%;
+	position: relative;
+ 	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1, h2, h4 { color: #0099CC; } //rgba(00, 153, 204, 0.8)
+

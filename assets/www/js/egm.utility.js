@@ -2,7 +2,7 @@
 * EGM - Utility functions in JavaScript
 * Author E.G.Mono
 */
-function EGM_util() {
+function EGM() {
 
 		/**
 		* dateToSqlDateString(Date)
