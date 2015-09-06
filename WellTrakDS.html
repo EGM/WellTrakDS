@@ -1,0 +1,229 @@
+i<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,700" type="text/css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/jqm-icon-pack-fa.css" />
+    <link rel="stylesheet" href="css/application.css" />
+
+	<!--<script src="file:///android_asset/app.js"></script>-->
+	<script src="lib/app.js"></script>
+    <script src="lib/jquery-2.1.4.min.js"></script>
+    <script src="lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="lib/knockout-3.3.0.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script src="lib/knockback.js"></script>
+    <script src="lib/moment.js"></script>
+	<script src="lib/i18next-1.10.1.js"></script>
+	
+	<script src="models/pwsModel.js"></script>
+	<script src="models/visitModel.js"></script>
+	<script src="collections/pwsCollection.js"></script>
+	<script src="collections/visitCollection.js"></script>
+	<script src="daos/pwsDao.js"></script>
+	<script src="daos/visitDao.js"></script>
+	<script src="viewmodels/visitViewModel.js"></script>
+	<script src="globals.js"></script>
+	<script src="application.js"></script>
+	
+    <title>WellTrak</title>
+  </head>
+  <body>
+    <div data-role="page" id="VisitView">
+
+      <!-- left panel  -->
+      <div id="panelMenu" data-role="panel" data-theme="b" 
+        data-position="left" data-display="overlay" 
+        data-dismissible="true" data-position-fixed="true" 
+        data-swipe-close="true" data-animate="true" 
+        class="transparant">
+        <p>Menu panel stuff goes here...</p>
+        <p><em>Might want to move this to code.</em></p>
+        <ul id="panelMenuUL" data-role="listview">
+          <li><a href="ts/tests.html" target="_blank">Run Unit Tests</a></li>
+          <li><a>Another link</a></li>
+        </ul>
+      </div><!-- /left panel -->
+
+	  <!-- ListVisitsView ----- ----- -->
+      <div id="ListVisitsView" data-role="panel" data-theme="b" 
+        data-position="right" data-display="overlay" 
+        data-dismissible="true" data-position-fixed="true" 
+        data-swipe-close="true" data-animate="true" 
+        class="transparant">
+        <ul id="ListVisitsViewUL" data-role="listview" 
+          data-inset="true" data-theme="a" data-icon="edit"></ul>
+      </div><!-- /right panel -->
+	  <!-- /ListVisitsView ----- ----- -->
+
+	  <!-- EditVisitView ----- ----- -->
+      <!--header-->
+      <div data-role="header" class="ui-title" data-position="fixed" data-theme="b">
+        <a href="#panelMenu" id="toggleMenu" 
+          class="ui-btn ui-corner-all ui-btn-icon-notext ui-icon-nodisc ui-btn-left ui-icon-bars">Menu</a>
+        <h1 class="holo-blue-bright" data-i18n="app.name"></h1> 
+        <a href="#ListVisitsView" id="toggleMenuRight" 
+          class="ui-btn ui-corner-all ui-btn-icon-notext ui-icon-nodisc ui-btn-right ui-icon-calendar">MonthView</a>
+      </div><!-- /header --> 
+	  
+      <!-- content --> 
+      <div role="main" class="ui-content"> 
+
+        <!--info section-->
+        <h2 class="holo-blue-dark" data-i18n="visit.info.heading"></h2>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <label for="visitWellId" data-i18n="visit.info.labels.0.name"></label>
+          </div>
+          <div class="ui-block-b">
+            <div class="ui-grid-a">
+              <div class="ui-block-a">
+                <input id="visitWellId" data-bind="value: visitWellId" readonly="readonly" 
+                  class="ui-btn-inline"/>
+              </div>
+              <div class="ui-block-b">
+                <a href="#AddWellView" data-rel="popup" id="visitWellAdd" data-transition="pop"
+                  class="ui-btn ui-corner-all ui-btn-icon-notext ui-shadow-icon ui-icon-plus">Add Well</a>
+              </div>
+            </div>
+          </div>
+          <div class="ui-block-a">
+            <label for="visitDate" data-i18n="visit.info.labels.1.name"></label>
+          </div>
+          <div class="ui-block-b">
+            <input id="visitDate" data-bind="value: visitDate" 
+              type="date" data-clear-btn="false" />
+          </div>
+        </div><!-- /grid -->
+        <!--/info section-->
+
+        <!--flow section-->
+        <h2 class="holo-blue-dark" data-i18n="visit.flow.heading"></h2>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <label for="flowMeter1" data-i18n="visit.flow.labels.0.name"></label>
+          </div>
+          <div class="ui-block-b">
+            <input id="flowMeter1" data-bind="value: flowMeter1" 
+              type="number" placeholder="0.0" tabindex="1"/>
+          </div>
+          <div class="ui-block-a">
+            <label for="flowDaily1" data-i18n="visit.flow.labels.1.name"></label>
+          </div>
+          <div class="ui-block-b">
+            <input id="flowDaily1" data-bind="value: flowDaily1" readonly="readonly" />
+          </div>
+          <div class="ui-block-a">
+            <label for="flowMeter2" data-i18n="visit.flow.labels.2.name"></label>
+          </div>
+          <div class="ui-block-b">
+            <input id="flowMeter2" data-bind="value: flowMeter2" 
+              type="number" placeholder="0.0" tabindex="2"/>
+          </div>
+          <div class="ui-block-a">
+            <label for="flowDaily2" data-i18n="visit.flow.labels.3.name"></label>
+          </div>
+          <div class="ui-block-b">
+            <input id="flowDaily2" data-bind="value: flowDaily2" readonly="readonly" />
+          </div>
+          <div class="ui-block-a">
+            <label for="flowDailyTotal" data-i18n="visit.flow.labels.4.name"></label>
+          </div>
+          <div class="ui-block-b">
+            <input id="flowDailyTotal" data-bind="value: flowDailyTotal" readonly="readonly" />
+          </div>
+        </div><!-- /grid -->
+        <!-- /flow section -->
+
+        <!-- quality section -->
+        <h2 class="holo-blue-dark" data-i18n="visit.quality.heading"></h2>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <label for="qualityCl" data-i18n="visit.quality.labels.0.name"></label>
+          </div>
+          <div class="ui-block-b">
+            <input id="qualityCl" data-bind="value: qualityCl" 
+              type="number" placeholder="0.0" tabindex="3"/>
+          </div>
+          <div class="ui-block-a">
+            <label for="qualityPh" data-i18n="visit.quality.labels.1.name"></label>
+          </div>
+          <div class="ui-block-b">
+            <input id="qualityPh" data-bind="value: qualityPh" 
+              type="number" placeholder="0.0" tabindex="4"/>
+          </div>
+        </div><!-- /grid -->
+        <!-- /quality section -->
+      </div><!-- /content -->
+
+      <!-- footer -->
+      <div data-role="footer" data-position="fixed" data-theme="b">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#" class="ui-btn ui-btn-icon-top ui-corner-all ui-icon-nodisc visit-footer ui-icon-save" 
+                id="visit-footer-save">Save</a></li>
+            <li><a href="#" class="ui-btn ui-btn-icon-top ui-corner-all ui-icon-nodisc visit-footer ui-icon-angle-left" 
+                id="visit-footer-previous">Previous</a></li>
+            <li><a href="#" class="ui-btn ui-btn-icon-top ui-corner-all ui-icon-nodisc visit-footer ui-icon-angle-right" 
+                id="visit-footer-next">Next</a></li>
+            <li><a href="#DeleteVisitView" data-rel="popup" data-position-to="window" data-transition="pop" 
+                class="ui-btn ui-btn-icon-top ui-corner-all ui-icon-nodisc visit-footer ui-icon-trash-o" 
+                id="visit-footer-delete">Delete</a></li>
+          </ul>
+        </div><!-- /navbar -->
+      </div><!-- /footer --> 
+
+	  <!-- AddWellView ----- ----- -->
+      <div data-role="popup" id="AddWellView" data-overlay-theme="b" 
+        data-theme="a" data-dismissible="false" style="max-width:400px;" data-position-to="window">
+        <div data-role="header" data-theme="b">
+          <h1 class="holo-blue-bright" data-i18n="new-well.header"></h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+          <h3 class="ui-title" data-i18n="new-well.title"></h3>
+          <input data-theme="a" id="newWellName" data-bind="textInput: newName, valueUpdate: 'afterkeydown'" />
+		  <!--event: { keypress: check }"/>-->
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <a href="#" id="addCancel" data-rel="back" data-i18n="new-well.btn-cancel"
+                class="ui-btn ui-btn-icon-left ui-corner-all ui-shadow ui-icon-delete"></a>
+            </div>
+            <div class="ui-block-b">
+              <a href="#" id="addOk" data-rel="back" data-transition="flow" data-i18n="new-well.btn-ok"
+                class="ui-btn ui-btn-icon-left ui-corner-all ui-shadow ui-icon-check"></a>
+            </div>
+          </div>
+        </div><!-- /main content -->
+      </div>
+	  <!-- /AddWellView ----- ----- -->
+
+	  <!-- DeleteVisitView ----- ----- -->
+      <div data-role="popup" id="DeleteVisitView" data-overlay-theme="b" 
+        data-theme="a" data-dismissible="false" style="max-width:400px;">
+        <div data-role="header" data-theme="b">
+          <h1 class="holo-blue-bright" data-i18n="delete-visit.header"></h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+          <h3 class="ui-title" data-i18n="delete-visit.title"></h3>
+          <p data-i18n="delete-visit.content"></p>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <a href="#" id="deleteCancel" data-rel="back" data-i18n="delete-visit.btn-cancel"
+                class="ui-btn ui-btn-icon-left ui-corner-all ui-shadow ui-icon-delete"></a>
+            </div>
+            <div class="ui-block-b">
+              <a href="#" id="deleteOk" data-rel="back" data-transition="flow" data-i18n="delete-visit.btn-ok"
+                class="ui-btn ui-btn-icon-left ui-corner-all ui-shadow ui-icon-check"></a>
+            </div>
+          </div>
+        </div><!-- /main content -->
+      </div>
+	  <!-- DeleteVisitView ----- ----- -->
+
+    </div><!-- /page -->
+  </body>
+</html>
+

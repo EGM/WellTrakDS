@@ -1,0 +1,48 @@
+
+body { 
+  font-family: 'Roboto', sans-serif; 
+}
+h1, h2, h3, h4 {
+   font-weight: 100;
+   text-align: center;
+}
+label {
+   position: relative;
+   top: 1em;
+}
+ 
+.holo-blue-bright  {color: #00ddff !important;}
+.holo-blue-dark    {color: #0099cc !important;}
+.holo-blue-light   {color: #33b5e5 !important;}
+.holo-green-dark   {color: #669900 !important;}
+.holo-green-light  {color: #99cc00 !important;}
+.holo-orange-dark  {color: #ff8800 !important;}
+.holo-orange-light {color: #ffbb33 !important;}
+.holo-purple       {color: #aa66cc !important;}
+.holo-red-dark     {color: #cc0000 !important;}
+.holo-red-light    {color: #ff4444 !important;}
+
+.visit-footer {}
+
+.month-day {
+   padding: 0 !important;
+   margin: 0 !important;
+   font-size: 1.5em !important;
+   text-align: center;
+}
+
+.ui-grid-b-pnl > .ui-block-a,
+.ui-grid-b-pnl > .ui-block-c {
+	width: 25% !important;
+}
+.ui-grid-b-pnl > .ui-block-b {
+	width: 50% !important;
+}
+.ui-grid-b-pnl > .ui-block-a > label {
+    text-align: right;
+	top: 0em;
+}
+.ui-grid-b-pnl > .ui-block-b > input {
+	width: 100% !important;
+}
+

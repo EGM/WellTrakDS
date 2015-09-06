@@ -1,0 +1,42 @@
+{
+  "delete-visit": {
+    "content": "This action cannot be undone.",
+    "title": "Are you sure you want to delete this well visit?",
+    "btn-cancel": "Cancel",
+    "btn-ok": "Ok",
+    "header": "Delete Visit?"
+  },
+  "app": {"name": "WellTrak"},
+  "visit": {
+    "quality": {
+      "heading": "Quality",
+      "labels": [
+        {"name": "Cl2:"},
+        {"name": "pH:"}
+      ]
+    },
+    "flow": {
+      "heading": "Flow",
+      "labels": [
+        {"name": "Meter 1:"},
+        {"name": "Daily 1:"},
+        {"name": "Meter 2:"},
+        {"name": "Daily 2:"},
+        {"name": "Daily Total:"}
+      ]
+    },
+    "info": {
+      "heading": "Info",
+      "labels": [
+        {"name": "Well Id:"},
+        {"name": "Date:"}
+      ]
+    }
+  },
+  "new-well": {
+    "btn-cancel": "Cancel",
+    "btn-ok": "Ok",
+    "title": "What do you want to call the well?",
+    "header": "Add New Well"
+  }
+}
